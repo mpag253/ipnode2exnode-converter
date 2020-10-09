@@ -1,0 +1,8 @@
+This converts an ipnode file to an exnode file.
+This is related to cmgui.
+I seperated it into 2 steps just to make it easier for me to think about it.
+
+To use run:
+
+python ipread.py <ipnode file> <temp json file>
+python exwrite.py <temp json file> <exnode file>
