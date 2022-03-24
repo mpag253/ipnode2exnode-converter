@@ -35,20 +35,25 @@ def genNodes(node):
     size = len(node['all'])
     outstr = ""
     nums = node['all']
+    linecount = 0  # "linecount" new by MP 2022/03 to fix formatting issue
     for i in range(size):
         num = nums[i]
-        if isIndex(node.get('index'), i):
+        if isIndex(node.get('index'), i): 
             if i == 0:
                 outstr += "    "
             else:
                 outstr += "\n    "
+                linecount = 0
             outstr += sci(num)
+            linecount += 1
         else:
-            if i % 5 == 0:
+            if linecount > 0 and linecount % 5 == 0:  # was "i % 5 == 0"
                 outstr += "\n  "
+                linecount = 0
             else:
                 outstr += "  "
             outstr += sci(num)
+            linecount += 1
     return outstr + "\n"
             
         
